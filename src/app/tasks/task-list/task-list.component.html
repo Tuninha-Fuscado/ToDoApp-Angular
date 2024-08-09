@@ -1,0 +1,22 @@
+<h2>Tarefas</h2>
+<hr/>
+
+<button type="button" class="btn btn-danger mb-2" [routerLink]="['/new']" [routerLinkActive]="['is-active']">
+  Nova tarefa
+</button>
+
+<section>
+  @if(tasks.length == 0){
+    <div class="alert alert-danger" role="alert">
+      Nenhuma tarefa foi cadastrada ainda.
+    </div>
+  }@else{
+  <ul class="list-group list-unstyled">
+    <li>
+      @for(task of tasks; track task.id){
+        <app-task-list-item [task]="task" class="task-item list-group-item"/>
+      }
+    </li>
+  </ul>
+  }
+</section>
